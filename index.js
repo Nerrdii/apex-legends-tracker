@@ -13,8 +13,12 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/v1/profile', require('./routes/profile'));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(__dirname + '/public/'));
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+  app.use(express.static('client/dist'));
+
+  const path = require('path');
+  app.get(/.*/, (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+  );
 }
 
 const PORT = process.env.PORT || 5000;
