@@ -7,19 +7,19 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run serve --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently -c auto,auto -n server,client \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm install -D --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "morgan": "^1.10.0",
-    "node-fetch": "^3.1.1"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
   }
 }
